@@ -19,10 +19,30 @@ main PROC ; main procedure
 update:
 	; (3*i + 1)/5
 	mov eax, 3 ; moves 3 into eax
-	imul eax, esi ; multiplies i by eax
+	mul esi ; multiplies i by eax
 	add eax, 1 ; adds 1 to eax
 	mov ecx, 5
-	div ecx
+	div ecx ; divs eax by 5
+	mov ecx, eax
+
+	; (2*i + ecx)
+	mov eax, 2
+	mul esi
+	add eax, ecx
+	
+	; 2*eax
+	mov ecx, 2
+	mul ecx
+
+	;B[i] = A[i] + eax
+	mov ecx, [ebx + TYPE A * esi]
+	add eax, ecx
+	
+	
+
+	inc esi; 
+	cmp esi, 10
+	jne update ; end or start of loop
 	
 
 	
