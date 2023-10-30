@@ -13,7 +13,7 @@ ExitProcess PROTO, dwExitCode: DWORD  ; Exit process prototype
 
 main PROC ; main procedure
 	; write your assembly code here
-	lea ebx, A
+	lea ebx, A ; loads A into ebx
 	mov esi, 0
 	
 update:
