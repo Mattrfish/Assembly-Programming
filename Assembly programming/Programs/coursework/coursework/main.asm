@@ -6,8 +6,8 @@ ExitProcess PROTO, dwExitCode: DWORD  ; Exit process prototype
 
 .data ; data segment
 	; define your variables here
-	A DWORD 3,2,3,1,7,5,0,8,9,2
-	B DWORD 0,0,0,0,0,0,0,0,0,0
+	A BYTE 3,2,3,1,7,5,0,8,9,2
+	B BYTE 0,0,0,0,0,0,0,0,0,0
 
 .code ; code segment
 
@@ -21,22 +21,23 @@ update:
 	mov eax, 3 ; moves 3 into eax
 	mul esi ; multiplies i by eax
 	add eax, 1 ; adds 1 to eax
-	mov ecx, 5
+	mov ecx, 5 ; moves 5 into ecx
 	div ecx ; divs eax by 5
-	mov ecx, eax
+	mov ecx, eax ; moves eax into ecx 
 
 	; (2*i + ecx)
-	mov eax, 2
-	mul esi
-	add eax, ecx
+	mov eax, 2 ; moves 2 into eax
+	mul esi ;multiplies i bys esi
+	add eax, ecx ; adds ecx to eax
 	
 	; 2*eax
-	mov ecx, 2
-	mul ecx
+	mov ecx, 2 ; moves 2 into ecx
+	mul ecx ; multiplies 2 by eax
 
 	;B[i] = A[i] + eax
-	mov ecx, [ebx + TYPE A * esi]
-	add eax, ecx
+	mov ecx, [ebx + TYPE A * esi] ; moves i position of array into ecx
+	add eax, ecx ; adds ecx to eax
+	mov [ebx + TYPE B * esi], eax ; moves eax into the i position of B array in ebx
 	
 	
 
